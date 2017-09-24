@@ -3,7 +3,7 @@
 #include <conio.h>
 #include <string.h>
 #include "funciones.h"
-#define TAM 5
+#define TAM 20
 
 int main()
 {
