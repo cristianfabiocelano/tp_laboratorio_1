@@ -21,7 +21,6 @@ int main()
         printf("2- Borrar pelicula\n");
         printf("3- Modificar pelicula.\n");
         printf("4- Generar pagina web\n");
-        printf("5- Mostrar Todas Las Peliculas\n");
         printf("\n0- SALIR.\n");
         scanf("%d",&opcion);
 
@@ -133,47 +132,9 @@ int main()
             for(i=0;i<TAM;i++)
             {
                 if(movie[i].estado==1)
-                fprintf(arch,"<article class='col-md-4 article-intro'> <a href='#'> <img class='img-responsive img-rounded' src='%s'alt=''>                </a>                <h3>                    <a href='#'>%s</a>                </h3> <ul> <li>Género:%s</li> <li>Puntaje:%d</li> <li>Duración:%d</li> </ul>                <p>%s</p> </article>",movie[i].linkImagen, movie[i].titulo, movie[i].genero, movie[i].puntaje, movie[i].duracion,movie[i].descripcion );
+                fprintf(arch,"<article class='col-md-4 article-intro'> <a href='#'> <img class='img-responsive img-rounded' src='%s'alt=''>                </a>                <h3>                    <a href='#'>%s</a>                </h3> <ul> <li>GÃ©nero:%s</li> <li>Puntaje:%d</li> <li>DuraciÃ³n:%d</li> </ul>                <p>%s</p> </article>",movie[i].linkImagen, movie[i].titulo, movie[i].genero, movie[i].puntaje, movie[i].duracion,movie[i].descripcion );
             }
             break;
-
-    case 5:
-            if ((arch=fopen("movies","rb"))==NULL)
-            {
-                printf("No se encontro el archivo");
-                exit(1);
-            }
-
-                while(!feof(arch))
-                {
-                    for(i=0;i<TAM;i++)
-                    {
-                    cant = fread(&movie[i], sizeof(movie[i]), 1, arch);
-
-                    if(cant != 1)
-                    {
-                        if(feof(arch))
-                            break;
-                        else
-                        {
-                            printf("No leyo el ultimo registro\n");
-                            break;
-                        }
-                    }
-                    }
-                }
-
-                for(i=0;i<TAM;i++)
-                {
-                     if(movie[i].estado==1)
-                     {printf("\n\n-------------------------------------------");
-                         printf("\n%s:\nDescripcion:\n\t%s\nDuracion:\n\t%d\n\t%d Pts\n",movie[i].titulo,movie[i].descripcion,movie[i].duracion,movie[i].puntaje);
-                      printf("-------------------------------------------\n\n");
-                     }
-                }
-
-            break;
-
     case 0:
             seguir = 'n';
             fclose(arch);
