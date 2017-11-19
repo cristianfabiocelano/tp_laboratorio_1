@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <conio.h>
+#include <string.h>
+#include <ctype.h>
 #include "funcion.h"
 float ingreso(float num)
 {
@@ -91,3 +93,43 @@ int validarFactorial (float X)
 
     return -1;
 }
+
+int validarEntero(char numerostr[50])
+    {
+        int cant;
+        int i=0;
+        int flag=0;
+
+        do
+        {
+            if(flag==-1)
+            {
+                printf("ERROR!!\nNumero invalido!!\n\nReingrese: ");
+                fflush(stdin);
+                gets(numerostr);
+            }
+
+            cant=strlen(numerostr);
+            flag=0;
+            while(i<cant&&flag==0)
+            {
+                if(isdigit(numerostr[i])!=0)
+                {
+                    i++;
+                }
+                else
+                {
+                    flag=-1;
+                }
+
+            }
+            if(flag==0)
+            {
+                flag=atoi(numerostr);
+            }
+        }
+        while(flag==-1);
+
+        return flag;
+    }
+

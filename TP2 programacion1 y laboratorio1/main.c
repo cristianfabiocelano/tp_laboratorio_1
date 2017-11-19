@@ -3,14 +3,14 @@
 #include <conio.h>
 #include <string.h>
 #include "funciones.h"
-#define TAM 20
+#define TAM 5
 
 int main()
 {
     EPersona persona[TAM];
     char seguir='s';
     int opcion=0;
-
+    char opcionChar[30];
     inicioEstado(persona,TAM);
 
     while(seguir=='s')
@@ -22,7 +22,8 @@ int main()
         printf("4- Imprimir grafico de edades\n\n");
         printf("5- Salir\n");
 
-        scanf("%d",&opcion);
+        gets(opcionChar);
+        opcion=validarEntero(opcionChar);
 
         switch(opcion)
         {

@@ -65,40 +65,6 @@ void bajaPersona(EPersona[], int);
  */
 void inicioEstado(EPersona[], int);
 
-/** \brief Valida una cadena de char.
- *
- * \param Cadena a validar.
- * \return 1 si la cadena es valida o 0 si la cadena es invalida.
- *
- */
-int validarCadena(char[]);
-
-/** \brief Valida un entero.
- *
- * \param Entero a validar tomado como cadena de char.
- * \return 1 si el numero entero es valida o 0 si el numero es invalida.
- *
- */
-int validarEntero(char[]);
-
-/** \brief Permite el reingreso de una cadena de char en el caso de que la devolucion de la validacion sea 0.
- *
- * \param Cadena de char a validar.
- * \param Valor que devuelve la anterior validacion.
- * \return -
- *
- */
-void reingresoStr(char[], int);
-
-/** \brief Permite el reingreso de una numero entero en el caso de que la devolucion de la validacion sea 0.
- *
- * \param Entero a validar tomado como cadena de char.
- * \param Valor que devuelve la anterior validacion.
- * \return Numero entero validado.
- *
- */
-int reingresoInt(char[], int);
-
 /** \brief Divide las edades de los perfiles con estado en 1 en 3 categorias.
  *
  * \param Lista el array se pasa como parametro.
@@ -126,4 +92,20 @@ int buscarMax(int[], int);
  *
  */
 void graficoVertical(EPersona[], int);
+
+/** \brief Valida un entero pasado como cadena.
+ *
+ * \param Entero a validar como cadena.
+ * \return Numero entero validado.
+ *
+ */
+int validarEntero(char[]);
+
+/** \brief Valida una cadena de char.
+ *
+ * \param Cadena a validar.
+ * \return -
+ *
+ */
+void validarCadena(char[]);
 #endif // FUNCIONES_H_INCLUDED

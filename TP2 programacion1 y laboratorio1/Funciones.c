@@ -49,7 +49,6 @@ void altaPersona(EPersona persona[], int TAM)
 {
     int indice;
     char dniStr[20];
-    int nombreInt;
     char edadStr[20];
     int DNI;
     int esta;
@@ -63,7 +62,6 @@ void altaPersona(EPersona persona[], int TAM)
         fflush(stdin);
         gets(dniStr);
         DNI=validarEntero(dniStr);
-        DNI=reingresoInt(dniStr,DNI);
 
         esta= buscarPorDni(persona,TAM,DNI);
         if(esta!=-1)
@@ -80,16 +78,13 @@ void altaPersona(EPersona persona[], int TAM)
             printf("\nIngrese nombre: ");
             fflush(stdin);
             gets(persona[indice].nombre);
-            nombreInt=validarCadena(persona[indice].nombre);
-            reingresoStr(persona[indice].nombre,nombreInt);
+            validarCadena(persona[indice].nombre);
 
             system("cls");
             printf("\nIngrese edad: ");
             fflush(stdin);
             gets(edadStr);
             persona[indice].edad=validarEntero(edadStr);
-            persona[indice].edad=reingresoInt(edadStr,persona[indice].edad);
-
 
             persona[indice].estado=1;
         }
@@ -118,7 +113,6 @@ void bajaPersona(EPersona persona[], int TAM)
     gets(dniStr);
 
     DNI=validarEntero(dniStr);
-    DNI=reingresoInt(dniStr,DNI);
 
     indice=buscarPorDni(persona,TAM,DNI);
 
@@ -206,77 +200,76 @@ void ordenarPorNombre(EPersona persona[], int TAM)
     system("pause");
 }
 
-int validarCadena(char palabra[50])
-{
-    int cant;
-    int i=0;
-    int flag=0;
-    cant=strlen(palabra);
-    while(i<cant&&flag==0)
+    int validarEntero(char numerostr[50])
     {
-        if(isalpha(palabra[i])!=0)
+        int cant;
+        int i=0;
+        int flag=0;
+
+        do
         {
-            i++;
+            if(flag==-1)
+            {
+                printf("ERROR!!\nNumero invalido!!\n\nReingrese: ");
+                fflush(stdin);
+                gets(numerostr);
+            }
+
+            cant=strlen(numerostr);
+            flag=0;
+            while(i<cant&&flag==0)
+            {
+                if(isdigit(numerostr[i])!=0)
+                {
+                    i++;
+                }
+                else
+                {
+                    flag=-1;
+                }
+
+            }
+            if(flag==0)
+            {
+                flag=atoi(numerostr);
+            }
         }
-        else
+        while(flag==-1);
+
+        return flag;
+    }
+
+    void validarCadena(char palabra[50])
+    {
+        int cant;
+        int i=0;
+        int flag=0;
+
+        do
         {
-            flag=1;
+            if(flag==1)
+            {
+                printf("ERROR!!!\nReingrese: ");
+                fflush(stdin);
+                gets(palabra);
+            }
+
+            cant=strlen(palabra);
+            flag=0;
+            while(i<cant&&flag==0)
+            {
+                if(isalpha(palabra[i])!=0)
+                {
+                    i++;
+                }
+                else
+                {
+                    flag=1;
+                }
+            }
         }
+        while(flag==1);
     }
-    return flag;
-
-}
-
-int validarEntero(char numerostr[50])
-{
-    int cant;
-    int i=0;
-    int flag=0;
-
-    cant=strlen(numerostr);
-    while(i<cant&&flag==0)
-    {
-        if(isdigit(numerostr[i])!=0)
-        {
-            i++;
-        }
-        else
-        {
-            flag=-1;
-        }
-
-    }
-    if(flag==0)
-    {
-        flag=atoi(numerostr);
-    }
-    return flag;
-}
-
-void reingresoStr(char nombre[50], int valor)
-{
-    while(valor==1)
-    {
-        system("cls");
-        printf("ERROR!!\nPalabra invalida!!\n\nReingrese: ");
-        fflush(stdin);
-        gets(nombre);
-        valor=validarCadena(nombre);
-    }
-}
-
-int reingresoInt(char numerostr[50], int numeroInt)
-{
-    while(numeroInt==-1)
-    {
-        system("cls");
-        printf("ERROR!!\nNumero invalido!!\n\nReingrese: ");
-        fflush(stdin);
-        gets(numerostr);
-        numeroInt=validarEntero(numerostr);
-    }
-    return numeroInt;
-}
 
 void dividirEdades(EPersona persona[], int TAM, int contEdad[3])
 {

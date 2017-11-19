@@ -44,3 +44,20 @@
 	<stdlib.h>
 	"funcion.h"
 
+1511125877 source:c:\users\cristian.desktop-9lvuu52\desktop\tps\tp1 programacion1 y laboratorio1\funcion.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<string.h>
+	<ctype.h>
+	"funcion.h"
+
+1511125925 c:\users\cristian.desktop-9lvuu52\desktop\tps\tp1 programacion1 y laboratorio1\funcion.h
+	<stdio.h>
+	<stdlib.h>
+
+1511125809 source:c:\users\cristian.desktop-9lvuu52\desktop\tps\tp1 programacion1 y laboratorio1\main.c
+	<stdio.h>
+	<stdlib.h>
+	"funcion.h"
+

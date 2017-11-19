@@ -17,6 +17,7 @@ int main()
     long long int resultadoFactorial;
     char seguir='s';
     int opcion=0;
+    char opcionChar[30];
 
 
     while(seguir=='s')
@@ -45,7 +46,8 @@ int main()
         printf("8- Calcular todas las operacione\n");
         printf("9- Salir\n");
 
-        scanf("%d",&opcion);
+        gets(opcionChar);
+        opcion=validarEntero(opcionChar);
 
         switch(opcion)
         {

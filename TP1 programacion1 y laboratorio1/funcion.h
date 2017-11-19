@@ -87,4 +87,12 @@ float validarDivicion(float);
  *
  */
 int validarFactorial (float);
+
+/** \brief Valida un entero pasado como cadena.
+ *
+ * \param Entero a validar como cadena.
+ * \return Numero entero validado.
+ *
+ */
+int validarEntero(char[]);
 #endif // FUNCIONES_H_INCLUDED
